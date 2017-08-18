@@ -31,7 +31,7 @@ It can be controlled with any computer.
 # Materials Required
 
 ## Wifi Module
-<img src="./wifi.png" width="350">
+<img src="./wifi.png" alt="wifi image" width="350">
 This is a Wi-Fi module which we are using in our project. Its model is “Esp8266mod” and vendor is “Ai-Thinker”. It’s an impressive, low cost Wi-Fi module suitable for adding Wi-Fi functionality to an existing microcontroller project via a UART serial connection. The module can even be reprogrammed to act as a standalone Wi-Fi connected device–just add power.
 
 ### Configuration of esp module
@@ -53,6 +53,5 @@ iii)	It is also able to operate both in station mode and soft Access Point Mode 
 6.Easily available in Online Shopping websites such as Amazon and Ebay.
 
 ### Pin diagram of esp
-
-
+<img src="./pinDiagram.png" alt="pinDiagram" width="350">
 
