@@ -55,3 +55,30 @@ iii)	It is also able to operate both in station mode and soft Access Point Mode 
 ### Pin diagram of esp
 <img src="./pinDiagram.png" alt="pinDiagram" width="350">
 
+
+## Relay Module
+This is a relay module having 4 5v relays.
+
+### Configuration of relay Module
+1.	Input Voltage:	5v.
+2.	Input Current:	15-20mA .Each of the 4 relays shown above needs 15-20 mA driver current.
+3.	Output Voltage:	 220v AC.
+4.	Output current  :	upto 10A
+
+### What is a relay?
+We know that most of the high end industrial application devices have relays for their effective working. Relays are simple switches which are operated both electrically and mechanically. Relays consist of a n electromagnet and also a set of contacts. The switching mechanism is carried out with the help of the electromagnet. There are also other operating principles for its working. But they differ according to their applications. Most of the devices have the application of relays.
+
+### Why is a relay used?
+The main operation of a relay comes in places where only a low-power signal can be used to control a circuit. It is also used in places where only one signal
+can be used to control a lot of circuits.
+Here we are using dc voltages in module and we are trying to connect and switch AC devices using signals sent by the Wi-Fi module. So here comes the application of relay.
+
+### Relay Design
+There are only four main parts in a relay. They are
+	Electromagnet
+	Movable Armature
+	Switch point contacts
+	Spring
+The figures given below show the actual design of a simple relay.
+
+
