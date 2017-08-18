@@ -158,8 +158,22 @@ The above is the dedicated power supply circuit and the 9v dc adapter, the 9v ad
 
 ## 3v to 5v switch
 
+<img src="./3vto5vSwitch.png" alt="3vto5vSwitch.png" width="350">
+
+Above is a circuit diagram of 3v to 5v switch.
+The left end is coming from Wi-Fi module.
 
 
+## How to Setup Hardware
+
+<img src="./hardwareSetup.png" alt="hardwareSetup.png" width="350">
+
+Working with 5v Relay using 3.3v signal from esp module.The figure 2 shows the pin configuration of figure 1 in complete.
+
+<img src="./completeHardwareSetup.png" alt="completeHardwareSetup.png" width="350">
+
+*Figure 3 shows the complete setup of relays, Wi-Fi module and connectivity with home appliances.*
+Relays and appliances are connected with ac supply (220v). Wi-Fi module is connected with any 5v DC supply through usb. The relays should be given a power supply of 5v dc sufficient enough to trigger the relay coil and make it work. The states of Relays are normally open. When the on signal is received, the relay switches to normally closed state and appliances are turned on.
 
 
 
