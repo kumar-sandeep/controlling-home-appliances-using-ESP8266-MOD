@@ -50,4 +50,4 @@ a
 
 [wifi module](./Wi-Fi-Module.md)
 
-[local-end](#hero)
+[local end](#hero)
