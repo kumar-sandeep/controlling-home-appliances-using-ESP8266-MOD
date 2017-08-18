@@ -31,7 +31,7 @@ It can be controlled with any computer.
 # Materials Required
 
 ## Wifi Module
-<img src="./wifi.png" alt="wifi image" width="350">
+<img src="./wifi.png" alt="wifi.png" width="350">
 This is a Wi-Fi module which we are using in our project. Its model is “Esp8266mod” and vendor is “Ai-Thinker”. It’s an impressive, low cost Wi-Fi module suitable for adding Wi-Fi functionality to an existing microcontroller project via a UART serial connection. The module can even be reprogrammed to act as a standalone Wi-Fi connected device–just add power.
 
 ### Configuration of esp module
@@ -53,7 +53,7 @@ iii)	It is also able to operate both in station mode and soft Access Point Mode 
 6.Easily available in Online Shopping websites such as Amazon and Ebay.
 
 ### Pin diagram of esp
-<img src="./pinDiagram.png" alt="pinDiagram" width="350">
+<img src="./pinDiagram.png" alt="pinDiagram.png" width="350">
 
 
 ## Relay Module
@@ -81,12 +81,14 @@ There are only four main parts in a relay. They are
 	Spring
 The figures given below show the actual design of a simple relay.
 
-<img src="./relayConstruction.png" alt="pinDiagram" width="350">
+<img src="./relayConstruction.png" alt="relayConstruction.png" width="350">
 It is an electro-magnetic relay with a wire coil, surrounded by an iron core. A path of very low reluctance for the magnetic flux is provided for the movable armature and also the switch point contacts.  The movable armature is connected to the yoke which is mechanically connected to the switch point contacts. These parts are safely held with the help of a spring. The spring is used so as to produce an air gap in the circuit when the relay becomes de-energized.
 
 ### How relay works?
 The working of a relay can be better understood by explaining the following diagram given below.
-<img src="./relayDesign.png" alt="pinDiagram" width="350">
+
+<img src="./relayDesign.png" alt="relayDesign.png" width="350">
+
 The diagram shows an inner section diagram of a relay. An iron core is surrounded by a control coil. As shown, the power source is given to the electromagnet through a control switch and through contacts to the load. When current starts flowing through the control coil, the electromagnet starts energizing and thus intensifies the magnetic field. Thus the upper contact arm starts to be attracted to the lower fixed arm and thus closes the contacts causing a short circuit for the power to the load. On the other hand, if the relay was already de-energized when the contacts were closed, then the contact move oppositely and make an open circuit.
 As soon as the coil current is off, the movable armature will be returned by a force back to its initial position. This force will be almost equal to half the strength of the magnetic force. This force is mainly provided by two factors. They are the spring and also gravity.
 Relays are mainly made for two basic operations. One is low voltage application and the other is high voltage. For low voltage applications, more preference will be given to reduce the noise of the whole circuit. For high voltage applications, they are mainly designed to reduce a phenomenon called arcing.
@@ -94,6 +96,26 @@ Relays are mainly made for two basic operations. One is low voltage application 
 ### Relay Basics
 
 The basics for all the relays are the same. Take a look at a 4 – pin relay shown below. There are two colours shown. The green colour represents the control circuit and the red colour represents the load circuit. A small control coil is connected onto the control circuit. A switch is connected to the load. This switch is controlled by the coil in the control circuit. Now let us take the different steps that occour in a relay.
+
+<img src="./relayDesign.png" alt="relayDesign.png" width="350">
+
+### Energized Relay (ON)
+
+As shown in the circuit, the current flowing through the coils represented by pins 1 and 3 causes a magnetic field to be aroused. This magnetic field causes the closing of the pins 2 and 4. Thus the switch plays an important role in the relay working. As it is a part of the load circuit, it is used to control an electrical circuit that is connected to it. Thus, when the relay in energized the current flow will be through the pins 2 and 4.
+
+<img src="./relayOn.png" alt="relayOn.png" width="350">
+
+### De-Energized Relay (OFF)
+
+As soon as the current flow stops through pins 1 and 3, the switch opens and thus the open circuit prevents the current flow through pins 2 and 4. Thus the relay becomes de-energized and thus in off position.
+
+<img src="./relayOff.png" alt="relayOff.png" width="350">
+
+*In simple, when a voltage is applied to pin 1, the electromagnet activates, causing a magnetic field to be developed, which goes on to close the pins 2 and 4 causing a closed circuit. When there is no voltage on pin 1, there will be no electromagnetic force and thus no magnetic field. Thus the switches remain open*
+
+
+## Breadboard
+
 
 
 
