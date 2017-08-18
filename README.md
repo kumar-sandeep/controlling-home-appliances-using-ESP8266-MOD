@@ -97,7 +97,7 @@ Relays are mainly made for two basic operations. One is low voltage application 
 
 The basics for all the relays are the same. Take a look at a 4 – pin relay shown below. There are two colours shown. The green colour represents the control circuit and the red colour represents the load circuit. A small control coil is connected onto the control circuit. A switch is connected to the load. This switch is controlled by the coil in the control circuit. Now let us take the different steps that occour in a relay.
 
-<img src="./relayDesign.png" alt="relayDesign.png" width="350">
+<img src="./relayOperation.png" alt="relayOperation.png" width="350">
 
 ### Energized Relay (ON)
 
