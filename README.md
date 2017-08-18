@@ -1,7 +1,7 @@
 # Welcome to my page
 
 ## Table of Contents
-* [Introduction](##Introduction)
+* [Introduction](#Introduction)
 * [Aim and Objective](#Aim-and-Objective)
 * [Expected outcome](#Expected outcome)
 * [Materials Required](#Materials Required)
