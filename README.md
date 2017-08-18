@@ -81,4 +81,4 @@ There are only four main parts in a relay. They are
 	Spring
 The figures given below show the actual design of a simple relay.
 
-
+<img src="./relayConstruction.png" alt="pinDiagram" width="350">
