@@ -3,10 +3,10 @@
 ## Table of Contents
 * [Introduction](#introduction)
 * [Aim and Objective](#aim-and-objective)
-* [Expected outcome](#expected outcome)
-* [Materials Required](#materials required)
-  * [Wifi Module](#wifi module)
-  * [Relay Module](#Relay Module)
+* [Expected outcome](#expected-outcome)
+* [Materials Required](#materials-required)
+  * [Wifi Module](#wifi-module)
+  * [Relay Module](#relay-module)
   
   
 ## Introduction
@@ -31,7 +31,6 @@ It can be controlled with any computer.
 # Materials Required
 
 ## Wifi Module
-
 <img src="./wifi.png" width="350">
 This is a Wi-Fi module which we are using in our project. Its model is “Esp8266mod” and vendor is “Ai-Thinker”. It’s an impressive, low cost Wi-Fi module suitable for adding Wi-Fi functionality to an existing microcontroller project via a UART serial connection. The module can even be reprogrammed to act as a standalone Wi-Fi connected device–just add power.
 
