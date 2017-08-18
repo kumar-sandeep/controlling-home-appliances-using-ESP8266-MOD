@@ -1,7 +1,7 @@
 ## Welcome to my Pages 
 
 # hero
-[go to local end](#local-end)
+[go to local end](local-end)
 
 welcome to d
 a
