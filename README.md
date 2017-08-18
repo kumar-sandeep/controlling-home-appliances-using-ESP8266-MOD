@@ -2,7 +2,7 @@
 
 ## Table of Contents
 * [Introduction](#Introduction)
-* [Aim and Objective](#Aim and Objective)
+* [Aim and Objective](#Aim-and-Objective)
 * [Expected outcome](#Expected outcome)
 * [Materials Required](#Materials Required)
   * [Wifi Module](#Wifi Module)
