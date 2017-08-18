@@ -116,6 +116,51 @@ As soon as the current flow stops through pins 1 and 3, the switch opens and thu
 
 ## Breadboard
 
+<img src="./breadboard.png" alt="breadboard.png" width="350">
+
+A breadboard is a construction base for prototyping of electronics.
+
+
+## Jumper Wire
+
+<img src="./jumperWire.png" alt="breadboard.png" width="350">
+
+Jumper wires are the connecting wire which are breadboard and relay friendly.
+They are of three types 
+i)	Female to female 
+ii)	Male to male 
+iii)	Female to male 
+
+
+## Resistor
+
+<img src="./resistor.png" alt="resistor.png" width="350">
+
+Two resistances are needed in our project.
+1)	47K 
+2)	1K
+
+
+## Transistor bc547
+
+<img src="./bc547transistor.png" alt="bc547transistor.png" width="350">
+
+BC547 is an NPN Bi-polar junction transistor (BJT) as shown in figure. A transistor, stands for transfer of resistance, is commonly used to amplify current. A small current at its base controls a larger current at collector & emitter terminals.
+Together with other electronic components, such as resistors, coils, and capacitors, it can be used as the active component for switches and amplifiers. 
+
+
+## Dedicated Power Supply for the Relay
+
+<img src="./dedicatedPowerSupplyForRelay.png" alt="dedicatedPowerSupplyForRelay.png" width="350">
+
+The above is the dedicated power supply circuit and the 9v dc adapter, the 9v adapter is plugged into the circuit and the circuit can give output of 5v and 3.3v and its current is sufficient enough to trigger 5v relay. It can be easily purchased from amazon and eBay.
+
+
+## 3v to 5v switch
+
+
+
+
 
 
 
