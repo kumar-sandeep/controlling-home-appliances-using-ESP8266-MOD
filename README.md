@@ -391,7 +391,7 @@ Confirming that the program is successfully uploaded.
 <img src="./uploadSuccess.png" alt="uploadSuccess.png" width="350">
 
 
-```java
+```
 
 package com.example.sandy.thingspeak;
 
@@ -837,3 +837,30 @@ public class MainActivity extends AppCompatActivity {
 
 ```
 
+##  How to control the appliances
+
+To access the web server the device should be connected to the same network.
+There are two ways to access the web server
+1)	Using web browser
+2)	Using android app
+
+### Using web browser
+
+Type the ip address of the module in the web browser. we have used
+Ip “192.168.0.109” while  writing arduino code. Here we are using “192.168.0.109”  in the web browser
+
+<img src="./webServerControl.png" alt="webServerControl" width="350" >
+
+### Using Android Code
+
+Below is the picture of the Android App developed by us. Using the buttons given u can toggle appliances on or off. Here button 1 is labeled “ON” and light is lit in the right hand side of button 1 showing that the first appliance is ON. While all the rest buttons are OFF.
+Two more buttons are given below a) Turn off all: to turn all devices off.
+b) Turn on all: to turn on all devices.
+ 
+<img src="./AndroidControl.png" alt="AndroidControl" width="350" >
+
+## References
+
+1)	Esp8266 Github community. for all the documentation of esp8266.
+2)	Wikipedia for the basic information.
+3)	developer.android.com  i.e Android Developer by Google. for all the documentation on android.
