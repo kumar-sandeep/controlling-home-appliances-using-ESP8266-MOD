@@ -399,13 +399,13 @@ server.handleClient();     // client request is managed here
 
 Hit right arrow key which is upload button as shown below with the yellow color.
 
-<img src="./uploadButton.png" alt="uploadButton.png" width="650">
+<img src="./uploadButton.png" alt="uploadButton.png" width="750">
 
 The above is screen is showing that the connection to the esp module is successful and now the program is being uploaded to the esp module.
 After few seconds the status “uploading” will change to “Done Uploading”
 Confirming that the program is successfully uploaded.
 
-<img src="./uploadSuccess.png" alt="uploadSuccess.png" width="650">
+<img src="./uploadSuccess.png" alt="uploadSuccess.png" width="750">
 
 
 ## Android Code
