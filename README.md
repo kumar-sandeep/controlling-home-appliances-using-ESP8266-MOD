@@ -7,7 +7,23 @@
 * [Materials Required](#materials-required)
   * [Wifi Module](#wifi-module)
   * [Relay Module](#relay-module)
-  
+  * [Breadboard](#breadboard)
+  * [Jumper Wire](#jumper-wire)
+  * [Resistor](#resistor)
+  * [Transistor bc547](#transistor-bc547)
+  * [Dedicated Power Supply for the Relay](#dedicated-power-supply-for-the-relay)
+* [3v to 5v switch](#3v-to-5v-switch)
+* [How to Setup Hardware](#how-to-setup-hardware)
+* [How to Program Esp Module](#how-to-program-esp-module)
+  * [Installing “CP210x USB TO UART Bridge” driver](#installing-"cp210x-usb-to-uart-bridge"-driver)
+  * [Setting up Arduino IDE for esp module](#setting-up-arduino-ide-for-esp-module)
+  * [Writing the Code we want](#arduino-code)
+  * [Uploading the code](#uploading-the-code)
+* [Android Code](#android-code)
+* [How to control the appliances/Accessing Server](#how-to-control-the-appliances)
+  * [Using web browser](#using-web-browser)
+  * [Using Android App](#using-android-app)
+* [References](#references)
   
 ## Introduction
 In this project we are going to make a home automation system using ESP8266 Wi-Fi module. Using this we will be able to control lights, electric fan and other home appliances through a web browser using our PC or mobile. These AC mains appliances will be connected to relays which are controlled by the ESP8266. ESP8266 acts as a Web Server and we will send control commands through a Web Browser like Google Chrome or Mozilla Firefox. ESP8266 is the one of the most popular and low cost Wi-Fi module available in the market today.
