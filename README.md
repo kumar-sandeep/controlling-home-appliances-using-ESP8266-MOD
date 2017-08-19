@@ -391,7 +391,7 @@ Confirming that the program is successfully uploaded.
 <img src="./uploadSuccess.png" alt="uploadSuccess.png" width="350">
 
 
-```android
+```java
 
 package com.example.sandy.thingspeak;
 
