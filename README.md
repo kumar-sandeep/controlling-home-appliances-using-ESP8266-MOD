@@ -214,15 +214,15 @@ ii)	Or just go to this link: http://www.silabs.com/products/development-tools/so
 
 Here we are using windows so we downloaded the windows version
 
-<img src="./driver.png" alt="driver.png" width="450">
+<img src="./driver.png" alt="driver.png" width="650">
 
 A zip file will be downloaded named “CPI210x_latest.zip”
 
-<img src="./driverRar.png" alt="driverRar.png" width="350">
+<img src="./driverRar.png" alt="driverRar.png" width="120">
 
 Unzip the file and install the “CPI210x_latest.exe” installer
 
-<img src="./installationPath.png" alt="installationPath.png" width="350">
+<img src="./installationPath.png" alt="installationPath.png" width="650">
 
 Configure the installation Path and also **REMEMBER THE PATH**
 
