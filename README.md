@@ -377,3 +377,463 @@ server.handleClient();     // client request is managed here
 }
 
 ```
+
+## Uploading the code to the esp module
+
+Hit right arrow key which is upload button as shown below with the yellow color.
+
+<img src="./uploadButton.png" alt="uploadButton.png" width="350">
+
+The above is screen is showing that the connection to the esp module is successful and now the program is being uploaded to the esp module.
+After few seconds the status “uploading” will change to “Done Uploading”
+Confirming that the program is successfully uploaded.
+
+<img src="./uploadSuccess.png" alt="uploadSuccess.png" width="350">
+
+
+```android
+
+package com.example.sandy.thingspeak;
+
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Color;
+import android.nfc.Tag;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Handler;
+import android.preference.DialogPreference;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URL;
+
+public class MainActivity extends AppCompatActivity {
+    ProgressBar progressBar1,progressBar2,progressBar3,progressBar4,progressBar5,progressBar6,progressBaroff;
+    TextView textView1,textView2,textView3,textView4,textView5,textView6;
+    Button button1,button2,button3, button4,button5,button6,buttonOffline,buttonIpcheck;
+    ImageView imageView1,imageView2,imageView3, imageView4, imageView5,imageView6;
+    EditText ip;
+    int count = 0;
+    private static final String URL = "http://192.168.0.109/";             
+    static String newIp;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+        textView1=(TextView)findViewById(R.id.textView1);
+        textView2=(TextView)findViewById(R.id.textView2);
+        textView3=(TextView)findViewById(R.id.textView3);
+        textView4=(TextView)findViewById(R.id.textView4);
+        textView1.setText("Socket 1");
+        textView2.setText("Socket 2");
+        textView3.setText("Socket 3");
+        textView4.setText("Socket 4");
+
+
+        button1=(Button)findViewById(R.id.button1);
+        button2=(Button)findViewById(R.id.button2);
+        button3=(Button)findViewById(R.id.button3);
+        button4=(Button)findViewById(R.id.button4);
+        button5=(Button)findViewById(R.id.button5);
+        button6=(Button)findViewById(R.id.button6);
+        buttonIpcheck=(Button)findViewById(R.id.ipcheck);
+
+        buttonOffline.setVisibility(View.GONE);
+         progressBar1=(ProgressBar)findViewById(R.id.progressBar1);
+        progressBar2=(ProgressBar)findViewById(R.id.progressBar2);
+        progressBar3=(ProgressBar)findViewById(R.id.progressBar3);
+        progressBar4=(ProgressBar)findViewById(R.id.progressBar4);
+        progressBaroff=(ProgressBar)findViewById(R.id.progressBarO);
+        progressBaroff.setVisibility(View.GONE);
+
+        imageView1 = (ImageView)findViewById(R.id.imageView1);
+        imageView1.setImageResource(R.drawable.bulb);
+
+        imageView2 = (ImageView)findViewById(R.id.imageView2);
+        imageView2.setImageResource(R.drawable.bulb);
+
+        imageView3 = (ImageView)findViewById(R.id.imageView3);
+        imageView3.setImageResource(R.drawable.bulb);
+
+        imageView4 = (ImageView)findViewById(R.id.imageView4);
+        imageView4.setImageResource(R.drawable.bulb);
+
+        ip=(EditText)findViewById(R.id.ip);
+        ip.setText(URL);
+        newIp=ip.getText().toString();
+
+        new FetchingOffline("").execute("");
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBar1.setVisibility(View.VISIBLE);
+                button1.setEnabled(false);
+                String status = button1.getText().toString();
+                newIp=ip.getText().toString();
+
+                if (status.contentEquals("Off")) {
+                    new UpdatingData1("socket1On").execute("socket1On");
+                } else if (status.contentEquals("On")) {
+                    new UpdatingData1("socket1Off").execute("socket1Off");
+                }
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBar2.setVisibility(View.VISIBLE);
+                button2.setEnabled(false);
+                String status=button2.getText().toString();
+                newIp=ip.getText().toString();
+                if (status.contentEquals("Off")) {
+                    new UpdatingData1("socket2On").execute("socket2On");
+                } else if (status.contentEquals("On")) {
+                    new UpdatingData1("socket2Off").execute("socket2Off");
+                }
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBar3.setVisibility(View.VISIBLE);
+                button3.setEnabled(false);
+                String status=button3.getText().toString();
+                newIp=ip.getText().toString();
+                if (status.contentEquals("Off")) {
+                    new UpdatingData1("socket3On").execute("socket3On");
+                } else if (status.contentEquals("On")) {
+                    new UpdatingData1("socket3Off").execute("socket3Off");
+                }
+            }
+        });
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBar4.setVisibility(View.VISIBLE);
+                button4.setEnabled(false);
+                String status=button4.getText().toString();
+                newIp=ip.getText().toString();
+
+                if (status.contentEquals("Off")) {
+                    new UpdatingData1("socket4On").execute("socket4On");
+                } else if (status.contentEquals("On")) {
+                    new UpdatingData1("socket4Off").execute("socket4Off");
+                }
+            }
+        });
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBar1.setVisibility(View.VISIBLE);
+                button1.setEnabled(false);
+                progressBar2.setVisibility(View.VISIBLE);
+                button2.setEnabled(false);
+                progressBar3.setVisibility(View.VISIBLE);
+                button3.setEnabled(false);
+                progressBar4.setVisibility(View.VISIBLE);
+                button4.setEnabled(false);
+                newIp=ip.getText().toString();
+
+
+                new UpdatingData1("socket4Off").execute("socket4Off");
+                new UpdatingData1("socket3Off").execute("socket3Off");
+                new UpdatingData1("socket2Off").execute("socket2Off");
+                new UpdatingData1("socket1Off").execute("socket1Off");
+
+
+            }
+        });
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBar1.setVisibility(View.VISIBLE);
+                button1.setEnabled(false);
+                progressBar2.setVisibility(View.VISIBLE);
+                button2.setEnabled(false);
+                progressBar3.setVisibility(View.VISIBLE);
+                button3.setEnabled(false);
+                progressBar4.setVisibility(View.VISIBLE);
+                button4.setEnabled(false);
+                newIp=ip.getText().toString();
+
+                new UpdatingData1("socket4On").execute("socket4On");
+                new UpdatingData1("socket3On").execute("socket3On");
+                new UpdatingData1("socket2On").execute("socket2On");
+                new UpdatingData1("socket1On").execute("socket1On");
+
+                            }
+        });
+
+        buttonIpcheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                newIp=ip.getText().toString();
+                new FetchingOffline("").execute("");
+            }
+        });
+    }
+    class FetchingOffline extends AsyncTask<String, Void, String>{
+        String string="";
+        String field="";
+        String butt="";
+        public FetchingOffline(String str)
+        {
+            this.string=str;
+        }
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected String doInBackground(String... str) {
+            try {
+                URL url1=new URL(""+newIp+string+"");
+                HttpURLConnection httpURLConnection=(HttpURLConnection)url1.openConnection();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+                StringBuilder stringBuilder = new StringBuilder();
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(line);
+                }
+                bufferedReader.close();
+                return stringBuilder.toString();
+
+            }catch (Exception e)
+            {
+                return "net";
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String response) {
+            if (response.contentEquals("net"))
+            {
+                buttonIpcheck.setText("Retry");
+                return;
+            }
+            else if(response == null) {
+
+
+                Toast.makeText(MainActivity.this, "Error Fetching data", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            else {
+                if (response.charAt(1) == '0') {
+                    buttonIpcheck.setText("Success");
+                    progressBar1.setVisibility(View.GONE);
+                    button1.setEnabled(true);
+                    button1.setText("Off");
+                    imageView1.setImageResource(R.drawable.bulboff);
+                }
+                if (response.charAt(3) == '0') {
+                    buttonIpcheck.setText("Success");
+                    progressBar2.setVisibility(View.GONE);
+                    button2.setEnabled(true);
+                    button2.setText("Off");
+                    imageView2.setImageResource(R.drawable.bulboff);
+                }
+                if (response.charAt(5) == '0') {
+                    buttonIpcheck.setText("Success");
+                    progressBar3.setVisibility(View.GONE);
+                    button3.setEnabled(true);
+                    button3.setText("Off");
+                    imageView3.setImageResource(R.drawable.bulboff);
+
+                }
+                if (response.charAt(7) == '0') {
+                    buttonIpcheck.setText("Success");
+                    progressBar4.setVisibility(View.GONE);
+                    button4.setEnabled(true);
+                    button4.setText("Off");
+                    imageView4.setImageResource(R.drawable.bulboff);
+                }
+                if (response.charAt(1) == '1') {
+                    buttonIpcheck.setText("Success");
+                    progressBar1.setVisibility(View.GONE);
+                    button1.setEnabled(true);
+                    button1.setText("On");
+                    imageView1.setImageResource(R.drawable.bulbon);
+
+                }
+                if (response.charAt(3) == '1') {
+                    buttonIpcheck.setText("Success");
+                    progressBar2.setVisibility(View.GONE);
+                    button2.setEnabled(true);
+                    button2.setText("On");
+                    imageView2.setImageResource(R.drawable.bulbon);
+
+                }
+                if (response.charAt(5) == '1') {
+                    buttonIpcheck.setText("Success");
+                    progressBar3.setVisibility(View.GONE);
+                    button3.setEnabled(true);
+                    button3.setText("On");
+                    imageView3.setImageResource(R.drawable.bulbon);
+
+                }
+                if (response.charAt(7) == '1') {
+                    buttonIpcheck.setText("Success");
+                    progressBar4.setVisibility(View.GONE);
+                    button4.setEnabled(true);
+                    button4.setText("On");
+                    imageView4.setImageResource(R.drawable.bulbon);
+                }
+                            }
+        }
+    }
+    class UpdatingData1 extends AsyncTask<String, Void, String>{
+        String string="";
+
+        public UpdatingData1(String str)
+        {
+            this.string=str;
+        }
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... str) {
+            try {
+                URL url1=new URL(""+newIp+string+"");
+                HttpURLConnection httpURLConnection=(HttpURLConnection)url1.openConnection();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+                StringBuilder stringBuilder = new StringBuilder();
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(line);
+                }
+                bufferedReader.close();
+                return stringBuilder.toString();
+            }catch (Exception e)
+            {
+                return "net";
+            }
+        }
+
+        @Override
+        protected void onPostExecute(final String response) {
+            if (response.contentEquals("net"))
+            {
+                buttonIpcheck.setText("Retry");
+
+                buttonIpcheck.setText("Retry");
+                Toast.makeText(MainActivity.this, "Error Fetching data", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            else {
+                if (response.charAt(1) == '0') {
+                    new FetchingOffline("").execute("");
+
+                }
+                if (response.charAt(3) == '0') {
+                    new FetchingOffline("").execute("");
+                }
+                if (response.charAt(5) == '0') {
+                    new FetchingOffline("").execute("");
+                }
+                    new FetchingOffline("").execute("");
+                }
+                if (response.charAt(1) == '1') {
+                    new FetchingOffline("").execute("");
+
+                }
+                if (response.charAt(3) == '1') {
+
+                    new FetchingOffline("").execute("");
+
+                }
+                if (response.charAt(5) == '1') {
+                    new FetchingOffline("").execute("");
+
+                }
+                if (response.charAt(7) == '1') {
+                    new FetchingOffline("").execute("");
+                }
+              }
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+   @Override
+    protected void onResume() {
+        super.onResume();
+
+        newIp=ip.getText().toString();
+        new FetchingOffline("").execute("");
+
+    }
+    private void showSnack(boolean isConnected) {
+        Snackbar snackbar = Snackbar
+                .make(findViewById(R.id.fab), message, Snackbar.LENGTH_LONG);
+
+        View sbView = snackbar.getView();
+        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+        textView.setTextColor(color);
+        snackbar.show();
+    }
+
+
+
+```
+
