@@ -194,7 +194,7 @@ Relays and appliances are connected with ac supply (220v). Wi-Fi module is conne
 
 ## How to Program Esp Module
 
-### 1)	[Installing “CP210x USB TO UART Bridge” driver.](#Installing-CP210x USB TO UART Bridge-driver.)
+### 1)	[Installing “CP210x USB TO UART Bridge” driver.](#installing-cp210x-usb-to-uart-bridge-driver)
 ### 2)	[Setting up Arduino IDE for esp module.](#setting-up-arduino-ide-for-esp-module)
 ### 3)	[Writing the Code we want.](#arduino-code)
 ### 4)	[Uploading the code.](#uploading-the-code-to-the-esp-module)
