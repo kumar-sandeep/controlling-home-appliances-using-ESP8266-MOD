@@ -15,9 +15,9 @@
 * [3v to 5v switch](#3v-to-5v-switch)
 * [How to Setup Hardware](#how-to-setup-hardware)
 * [How to Program Esp Module](#how-to-program-esp-module)
-  * [Installing “CP210x USB TO UART Bridge” driver](#installing-"cp210x-usb-to-uart-bridge"-driver)
+  * [Installing “CP210x USB TO UART Bridge” driver](#installing-\"cp210x-usb-to-uart-bridge\"-driver)
   * [Setting up Arduino IDE for esp module](#setting-up-arduino-ide-for-esp-module)
-  * [Writing the Code we want](#arduino-code)
+  * [Arduino Code](#arduino-code)
   * [Uploading the code](#uploading-the-code)
 * [Android Code](#android-code)
 * [How to control the appliances/Accessing Server](#how-to-control-the-appliances)
@@ -195,9 +195,9 @@ Relays and appliances are connected with ac supply (220v). Wi-Fi module is conne
 ## How to Program Esp Module
 
 ### 1)	[Installing “CP210x USB TO UART Bridge” driver.](#Installing “CP210x USB TO UART Bridge” driver.)
-### 2)	Setting up Arduino IDE for esp module.
-### 3)	Writing the Code we want.
-### 4)	Uploading the code.
+### 2)	[Setting up Arduino IDE for esp module.](#setting-up-arduino-ide-for-esp-module)
+### 3)	[Writing the Code we want.](#arduino-code)
+### 4)	[Uploading the code.](#uploading-the-code)
 
 
 
@@ -282,7 +282,7 @@ Click on esp8266 and install .
 And now the Arduino IDE is ready to program and upload the code.
 
 
-## Android Code
+## Arduino Code
 
 *Here is the arduino code for our project.*
 
@@ -405,6 +405,9 @@ After few seconds the status “uploading” will change to “Done Uploading”
 Confirming that the program is successfully uploaded.
 
 <img src="./uploadSuccess.png" alt="uploadSuccess.png" width="350">
+
+
+## Android Code
 
 
 ```
