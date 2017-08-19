@@ -33,8 +33,6 @@ The main Objective of our work is to automate the Home Appliances using Android 
 
 Also for the people who are sleeping at night and are feeling lazy to either switch off/on the fan or A.C. or any of the home appliances they can turn on/off using there android phone.
 
-Some times in this busy world people generally forget to switch off there fan or light or any home appliance in hurry while leaving home in that case they can also turn on/off it after leaving the home using there Android Application.
-
 Also, for the parents who fear of getting electric shocks if their children use the switch, then in that case too our project work is very useful as the child can control the home appliances using the Android Application and is safe for electric shocks.
 
 
@@ -82,7 +80,7 @@ This is a relay module having 4 5v relays.
 4.	Output current  :	upto 10A
 
 ### What is a relay?
-We know that most of the high end industrial application devices have relays for their effective working. Relays are simple switches which are operated both electrically and mechanically. Relays consist of a n electromagnet and also a set of contacts. The switching mechanism is carried out with the help of the electromagnet. There are also other operating principles for its working. But they differ according to their applications. Most of the devices have the application of relays.
+We know that most of the high end industrial application devices have relays for their effective working. Relays are simple switches which are operated both electrically and mechanically. Relays consist of an electromagnet and also a set of contacts. The switching mechanism is carried out with the help of the electromagnet. There are also other operating principles for its working. But they differ according to their applications. Most of the devices have the application of relays.
 
 ### Why is a relay used?
 The main operation of a relay comes in places where only a low-power signal can be used to control a circuit. It is also used in places where only one signal
@@ -95,13 +93,13 @@ There are only four main parts in a relay. They are
 	Movable Armature
 	Switch point contacts
 	Spring
-The figures given below show the actual design of a simple relay.
+*The figures given below show the actual design of a simple relay.*
 
 <img src="./relayConstruction.png" alt="relayConstruction.png" width="350">
 It is an electro-magnetic relay with a wire coil, surrounded by an iron core. A path of very low reluctance for the magnetic flux is provided for the movable armature and also the switch point contacts.  The movable armature is connected to the yoke which is mechanically connected to the switch point contacts. These parts are safely held with the help of a spring. The spring is used so as to produce an air gap in the circuit when the relay becomes de-energized.
 
 ### How relay works?
-The working of a relay can be better understood by explaining the following diagram given below.
+*The working of a relay can be better understood by explaining the following diagram given below.*
 
 <img src="./relayDesign.png" alt="relayDesign.png" width="350">
 
@@ -111,13 +109,13 @@ Relays are mainly made for two basic operations. One is low voltage application 
 
 ### Relay Basics
 
-The basics for all the relays are the same. Take a look at a 4 – pin relay shown below. There are two colours shown. The green colour represents the control circuit and the red colour represents the load circuit. A small control coil is connected onto the control circuit. A switch is connected to the load. This switch is controlled by the coil in the control circuit. Now let us take the different steps that occour in a relay.
+The basics for all the relays are the same. *Take a look at a 4 – pin relay shown below.* There are two colours shown. The green colour represents the control circuit and the red colour represents the load circuit. A small control coil is connected onto the control circuit. A switch is connected to the load. This switch is controlled by the coil in the control circuit. Now let us take the different steps that occour in a relay.
 
 <img src="./relayOperation.png" alt="relayOperation.png" width="350">
 
 ### Energized Relay (ON)
 
-As shown in the circuit, the current flowing through the coils represented by pins 1 and 3 causes a magnetic field to be aroused. This magnetic field causes the closing of the pins 2 and 4. Thus the switch plays an important role in the relay working. As it is a part of the load circuit, it is used to control an electrical circuit that is connected to it. Thus, when the relay in energized the current flow will be through the pins 2 and 4.
+*As shown in the circuit below*, the current flowing through the coils represented by pins 1 and 3 causes a magnetic field to be aroused. This magnetic field causes the closing of the pins 2 and 4. Thus the switch plays an important role in the relay working. As it is a part of the load circuit, it is used to control an electrical circuit that is connected to it. Thus, when the relay in energized the current flow will be through the pins 2 and 4.
 
 <img src="./relayOn.png" alt="relayOn.png" width="350">
 
@@ -176,7 +174,7 @@ The above is the dedicated power supply circuit and the 9v dc adapter, the 9v ad
 
 <img src="./3vto5vSwitch.png" alt="3vto5vSwitch.png" width="350">
 
-Above is a circuit diagram of 3v to 5v switch.
+*Above is a circuit diagram of 3v to 5v switch.*
 The left end is coming from Wi-Fi module.
 
 
@@ -184,9 +182,12 @@ The left end is coming from Wi-Fi module.
 
 <img src="./hardwareSetup.png" alt="hardwareSetup.png" width="350">
 
-Working with 5v Relay using 3.3v signal from esp module.The figure 2 shows the pin configuration of figure 1 in complete.
+Working with 5v Relay using 3.3v signal from esp module.
+**The figure 2 shows the pin configuration of figure 1 in complete.**
 
-<img src="./completeHardwareSetup.png" alt="completeHardwareSetup.png" width="350">
+
+
+<img src="./completeHardwareSetup.png" alt="completeHardwareSetup.png" width="600">
 
  **Figure 3 shows the complete setup of relays, Wi-Fi module and connectivity with home appliances.** 
 Relays and appliances are connected with ac supply (220v). Wi-Fi module is connected with any 5v DC supply through usb. The relays should be given a power supply of 5v dc sufficient enough to trigger the relay coil and make it work. The states of Relays are normally open. When the on signal is received, the relay switches to normally closed state and appliances are turned on.
