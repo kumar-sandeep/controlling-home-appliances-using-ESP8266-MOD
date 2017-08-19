@@ -226,59 +226,59 @@ Unzip the file and install the “CPI210x_latest.exe” installer
 
 Configure the installation Path and also **REMEMBER THE PATH**
 
-<img src="./chooseFolder.png" alt="chooseFolder.png" width="350">
+<img src="./chooseFolder.png" alt="chooseFolder.png" width="600">
 
 3)	To install the drivers, open the Window's Control Panel and clicked on the Device Manager. There you will find the USB controller that exists on chip. Right click on the CP120x USB Composite Controller (it has a tiny yellow caution symbol) under Other Devices.
 
-<img src="./controlPanel.png" alt="controlPanel.png" width="350">
+<img src="./controlPanel.png" alt="controlPanel.png" width="600">
 
 4)	Then a window will open and configure the path where we have installed the driver earlier and check that an Include subfolders checkbox is checked and click next. 
 
-<img src="./driverPath.png" alt="driverPath.png" width="350">
+<img src="./driverPath.png" alt="driverPath.png" width="600">
 
 When a driver is successfully updated below message will be shown.
 
-<img src="./driverSuccess.png" alt="driverSuccess.png" width="350">
+<img src="./driverSuccess.png" alt="driverSuccess.png" width="600">
 
 Now we can see that the “CPI210x USB to UART” is showing under Ports (COM and LPT) window which means driver is successfully installed and Configured in “COM5” in the figure shown below.
 
-<img src="./driverInstallationComplete.png" alt="driverInstallationComplete.png" width="350">
+<img src="./driverInstallationComplete.png" alt="driverInstallationComplete.png" width="600">
 
 ## Setting up Arduino IDE for esp module
 
 1)	Installing Arduino IDE 
 
-<img src="./arduinoWebsite.png" alt="arduinoWebsite.png" width="350">
+<img src="./arduinoWebsite.png" alt="arduinoWebsite.png" width="600">
 
 2)	Go to Preferences 
 
-<img src="./preferences.png" alt="preferences.png" width="350">
+<img src="./preferences.png" alt="preferences.png" width="600">
 
 In the Preferences Dialog ,go to Additional Boards Manager URL’s and write  “http://arduino.esp8266.com/stable/package_esp8266com_index.json” in it.
 
-<img src="./boardUrl.png" alt="boardUrl.png" width="350">
+<img src="./boardUrl.png" alt="boardUrl.png" width="600">
 
 3)	Then go to Board Manager 
 
-<img src="./boardManager.png" alt="boardManager.png" width="350">
+<img src="./boardManager.png" alt="boardManager.png" width="600">
 
 Then write “Esp8266” in the text field and hit enter.
 
-<img src="./findEsp.png" alt="findEsp.png" width="350">
+<img src="./findEsp.png" alt="findEsp.png" width="600">
 
 Click on esp8266 and install .
 
 4)	Select Board “NodeMCU 1.0(ESP-12E Module)”
 
-<img src="./selectNodeMCUBoard.png" alt="selectNodeMCUBoard.png" width="350">
+<img src="./selectNodeMCUBoard.png" alt="selectNodeMCUBoard.png" width="600">
 
 5)	Configuring COM Port: we have seen earlier that our driver is configured to “port5” so configure it to port5.
 
-<img src="./selectCom.png" alt="selectCom.png" width="350">
+<img src="./selectCom.png" alt="selectCom.png" width="600">
 
 6)	Configure COM Port Speed to “115200”
 
-<img src="./selectCom.png" alt="selectCom.png" width="350">
+<img src="./selectCom.png" alt="selectCom.png" width="600">
 
 And now the Arduino IDE is ready to program and upload the code.
 
@@ -399,13 +399,13 @@ server.handleClient();     // client request is managed here
 
 Hit right arrow key which is upload button as shown below with the yellow color.
 
-<img src="./uploadButton.png" alt="uploadButton.png" width="350">
+<img src="./uploadButton.png" alt="uploadButton.png" width="650">
 
 The above is screen is showing that the connection to the esp module is successful and now the program is being uploaded to the esp module.
 After few seconds the status “uploading” will change to “Done Uploading”
 Confirming that the program is successfully uploaded.
 
-<img src="./uploadSuccess.png" alt="uploadSuccess.png" width="350">
+<img src="./uploadSuccess.png" alt="uploadSuccess.png" width="650">
 
 
 ## Android Code
@@ -869,7 +869,7 @@ There are two ways to access the web server
 Type the ip address of the module in the web browser. we have used
 Ip “192.168.0.109” while  writing arduino code. Here we are using “192.168.0.109”  in the web browser
 
-<img src="./webServerControl.png" alt="webServerControl" width="350" >
+<img src="./webServerControl.png" alt="webServerControl" width="650" >
 
 ### Using Android App
 
@@ -877,7 +877,7 @@ Below is the picture of the Android App developed by us. Using the buttons given
 Two more buttons are given below a) Turn off all: to turn all devices off.
 b) Turn on all: to turn on all devices.
  
-<img src="./AndroidControl.png" alt="AndroidControl" width="350" >
+<img src="./AndroidControl.png" alt="AndroidControl" width="300" >
 
 ## References
 
