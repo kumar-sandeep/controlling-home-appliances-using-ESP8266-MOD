@@ -18,7 +18,7 @@
   * [Installing “CP210x USB TO UART Bridge” driver](#installing-\"cp210x-usb-to-uart-bridge\"-driver)
   * [Setting up Arduino IDE for esp module](#setting-up-arduino-ide-for-esp-module)
   * [Arduino Code](#arduino-code)
-  * [Uploading the code](#uploading-the-code)
+  * [Uploading the code](#uploading-the-code-to-the-esp-module)
 * [Android Code](#android-code)
 * [How to control the appliances/Accessing Server](#how-to-control-the-appliances)
   * [Using web browser](#using-web-browser)
@@ -197,7 +197,7 @@ Relays and appliances are connected with ac supply (220v). Wi-Fi module is conne
 ### 1)	[Installing “CP210x USB TO UART Bridge” driver.](#Installing “CP210x USB TO UART Bridge” driver.)
 ### 2)	[Setting up Arduino IDE for esp module.](#setting-up-arduino-ide-for-esp-module)
 ### 3)	[Writing the Code we want.](#arduino-code)
-### 4)	[Uploading the code.](#uploading-the-code)
+### 4)	[Uploading the code.](#uploading-the-code-to-the-esp-module)
 
 
 
@@ -870,7 +870,7 @@ Ip “192.168.0.109” while  writing arduino code. Here we are using “192.168
 
 <img src="./webServerControl.png" alt="webServerControl" width="350" >
 
-### Using Android Code
+### Using Android App
 
 Below is the picture of the Android App developed by us. Using the buttons given u can toggle appliances on or off. Here button 1 is labeled “ON” and light is lit in the right hand side of button 1 showing that the first appliance is ON. While all the rest buttons are OFF.
 Two more buttons are given below a) Turn off all: to turn all devices off.
