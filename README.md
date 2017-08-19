@@ -67,7 +67,7 @@ iii)	It is also able to operate both in station mode and soft Access Point Mode 
 6.Easily available in Online Shopping websites such as Amazon and Ebay.
 
 ### Pin diagram of esp
-<img src="./pinDiagram.png" alt="pinDiagram.png" width="350">
+<img src="./pinDiagram.png" alt="pinDiagram.png" width="450">
 
 
 ## Relay Module
@@ -111,19 +111,19 @@ Relays are mainly made for two basic operations. One is low voltage application 
 
 The basics for all the relays are the same. *Take a look at a 4 – pin relay shown below.* There are two colours shown. The green colour represents the control circuit and the red colour represents the load circuit. A small control coil is connected onto the control circuit. A switch is connected to the load. This switch is controlled by the coil in the control circuit. Now let us take the different steps that occour in a relay.
 
-<img src="./relayOperation.png" alt="relayOperation.png" width="350">
+<img src="./relayOperation.png" alt="relayOperation.png" width="250">
 
 ### Energized Relay (ON)
 
 *As shown in the circuit below*, the current flowing through the coils represented by pins 1 and 3 causes a magnetic field to be aroused. This magnetic field causes the closing of the pins 2 and 4. Thus the switch plays an important role in the relay working. As it is a part of the load circuit, it is used to control an electrical circuit that is connected to it. Thus, when the relay in energized the current flow will be through the pins 2 and 4.
 
-<img src="./relayOn.png" alt="relayOn.png" width="350">
+<img src="./relayOn.png" alt="relayOn.png" width="250">
 
 ### De-Energized Relay (OFF)
 
 As soon as the current flow stops through pins 1 and 3, the switch opens and thus the open circuit prevents the current flow through pins 2 and 4. Thus the relay becomes de-energized and thus in off position.
 
-<img src="./relayOff.png" alt="relayOff.png" width="350">
+<img src="./relayOff.png" alt="relayOff.png" width="250">
 
 *In simple, when a voltage is applied to pin 1, the electromagnet activates, causing a magnetic field to be developed, which goes on to close the pins 2 and 4 causing a closed circuit. When there is no voltage on pin 1, there will be no electromagnetic force and thus no magnetic field. Thus the switches remain open*
 
@@ -148,7 +148,7 @@ iii)	Female to male
 
 ## Resistor
 
-<img src="./resistor.png" alt="resistor.png" width="350">
+<img src="./resistor.png" alt="resistor.png" width="100">
 
 Two resistances are needed in our project.
 1)	47K 
@@ -172,7 +172,7 @@ The above is the dedicated power supply circuit and the 9v dc adapter, the 9v ad
 
 ## 3v to 5v switch
 
-<img src="./3vto5vSwitch.png" alt="3vto5vSwitch.png" width="350">
+<img src="./3vto5vSwitch.png" alt="3vto5vSwitch.png" width="550">
 
 *Above is a circuit diagram of 3v to 5v switch.*
 The left end is coming from Wi-Fi module.
@@ -180,7 +180,7 @@ The left end is coming from Wi-Fi module.
 
 ## How to Setup Hardware
 
-<img src="./hardwareSetup.png" alt="hardwareSetup.png" width="350">
+<img src="./hardwareSetup.png" alt="hardwareSetup.png" width="600">
 
 Working with 5v Relay using 3.3v signal from esp module.
 **The figure 2 shows the pin configuration of figure 1 in complete.**
@@ -214,7 +214,7 @@ ii)	Or just go to this link: http://www.silabs.com/products/development-tools/so
 
 Here we are using windows so we downloaded the windows version
 
-<img src="./driver.png" alt="driver.png" width="350">
+<img src="./driver.png" alt="driver.png" width="450">
 
 A zip file will be downloaded named “CPI210x_latest.zip”
 
