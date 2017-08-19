@@ -188,11 +188,192 @@ Relays and appliances are connected with ac supply (220v). Wi-Fi module is conne
 ## Installing “CP210x USB TO UART Bridge” driver
 
 1)	Connect the module with the computer using micro USB cable.
+
 2)	Download driver from internet using either of these two steps:
+
 i)	Google “CP210x USB TO UART Bridge” driver and download it.
+
 ii)	Or just go to this link: http://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers and download driver according to the operating system used.
+
 Here we are using windows so we downloaded the windows version
 
+<img src="./driver.png" alt="driver.png" width="350">
+
+A zip file will be downloaded named “CPI210x_latest.zip”
+
+<img src="./driverRar.png" alt="driverRar.png" width="350">
+
+Unzip the file and install the “CPI210x_latest.exe” installer
+
+<img src="./installationPath.png" alt="installationPath.png" width="350">
+
+Configure the installation Path and also **REMEMBER THE PATH**
+
+<img src="./chooseFolder.png" alt="chooseFolder.png" width="350">
+
+3)	To install the drivers, open the Window's Control Panel and clicked on the Device Manager. There you will find the USB controller that exists on chip. Right click on the CP120x USB Composite Controller (it has a tiny yellow caution symbol) under Other Devices.
+
+<img src="./controlPanel.png" alt="controlPanel.png" width="350">
+
+4)	Then a window will open and configure the path where we have installed the driver earlier and check that an Include subfolders checkbox is checked and click next. 
+
+<img src="./driverPath.png" alt="driverPath.png" width="350">
+
+When a driver is successfully updated below message will be shown.
+
+<img src="./driverSuccess.png" alt="driverSuccess.png" width="350">
+
+Now we can see that the “CPI210x USB to UART” is showing under Ports (COM and LPT) window which means driver is successfully installed and Configured in “COM5” in the figure shown below.
+
+<img src="./driverInstallationComplete.png" alt="driverInstallationComplete.png" width="350">
+
+## Setting up Arduino IDE for esp module
+
+1)	Installing Arduino IDE 
+
+<img src="./arduinoWebsite.png" alt="arduinoWebsite.png" width="350">
+
+2)	Go to Preferences 
+
+<img src="./preferences.png" alt="preferences.png" width="350">
+
+In the Preferences Dialog ,go to Additional Boards Manager URL’s and write  “http://arduino.esp8266.com/stable/package_esp8266com_index.json” in it.
+
+<img src="./boardUrl.png" alt="boardUrl.png" width="350">
+
+3)	Then go to Board Manager 
+
+<img src="./boardManager.png" alt="boardManager.png" width="350">
+
+Then write “Esp8266” in the text field and hit enter.
+
+<img src="./findEsp.png" alt="findEsp.png" width="350">
+
+Click on esp8266 and install .
+
+4)	Select Board “NodeMCU 1.0(ESP-12E Module)”
+
+<img src="./selectNodeMCUBoard.png" alt="selectNodeMCUBoard.png" width="350">
+
+5)	Configuring COM Port: we have seen earlier that our driver is configured to “port5” so configure it to port5.
+
+<img src="./selectCom.png" alt="selectCom.png" width="350">
+
+6)	Configure COM Port Speed to “115200”
+
+<img src="./selectCom.png" alt="selectCom.png" width="350">
+
+And now the Arduino IDE is ready to program and upload the code.
 
 
+## Android Code
 
+*Here is the arduino code for our project.*
+
+```arduino
+#include <ESP8266Wi-Fi.h>                  // Libraries
+#include <ESP8266WebServer.h>         // needed
+int gpio1_pin = 14;     //declaring gpio1 to the pin 14 
+int gpio2_pin = 12;     //declaring gpio2 to the pin 12
+int gpio3_pin = 13;     //declaring gpio3 to the pin 13
+int gpio4_pin = 15;     //declaring gpio4 to the pin 15
+
+char ssid[] = "Dragon";      // your network SSID (name) 
+char pass[] = "a1235789";    // your network password
+
+IPAddress staticIp(192, 168, 0, 109);     //static ip
+IPAddress gateway(192, 168, 0, 1);       //gateway
+IPAddress subnet(255, 255, 255, 0);      //and subnet
+    
+ESP8266WebServer server(80);           //server at port 80
+
+String webPage = "", button1 = "", button2 = "", button3 = "", button4 = "";
+String a = "1",b="2",c="3",d="4";
+
+void setup() {              //Declaration and Code which are runned once are written here
+  
+  Serial.begin(115200);     //serial monitor declaration at 115200 baud 
+  
+  webPage += "<h1>ESP8266 Web Server</h1>";                   // webPage                                                                              
+  button1 += "<p>Socket #1 <a href=\"socket1On\"><button>ON</button></a>&nbsp;<a href=\"socket1Off\"><button>OFF</button></a></p>&nbsp;";         // is 
+  button2 += "<p>Socket #2 <a href=\"socket2On\"><button>ON</button></a>&nbsp;<a href=\"socket2Off\"><button>OFF</button></a></p>&nbsp;";        // declared
+  button3 += "<p>Socket #3 <a href=\"socket3On\"><button>ON</button></a>&nbsp;<a href=\"socket3Off\"><button>OFF</button></a></p>&nbsp;";         // here
+  button4 += "<p>Socket #4 <a href=\"socket4On\"><button>ON</button></a>&nbsp;<a href=\"socket4Off\"><button>OFF</button></a></p>&nbsp;";
+ 
+  pinMode(gpio1_pin, OUTPUT);         //  All pins
+  pinMode(gpio2_pin, OUTPUT);         //  modes are
+  pinMode(gpio3_pin, OUTPUT);         //  declared
+  pinMode(gpio4_pin, OUTPUT);         //  as output
+  
+  Wi-Fi.begin(ssid, pass);                      // Connection to Wi-Fi Access Point is initiated here
+  Wi-Fi.config(staticIp, gateway, subnet);        // Static IP Address is assigned here
+
+  while (Wi-Fi.status() != WL_CONNECTED) { // dot is printed in the serial monitor
+    delay(500);                                    		  // until the module gets
+    Serial.print(".");                               // connected to the Wi-Fi Access Point
+  }
+  
+  Serial.println("");
+  Serial.println("Wi-Fi connected");                  // Finally the message "Wi-Fi connected" is displayed when module successfully gets connected to Access Point. 
+  
+  server.on("/", []() {                            
+    server.send(200, "text/html",a+digitalRead(gpio1_pin)+b+digitalRead(gpio2_pin)+c+digitalRead(gpio3_pin)+d+digitalRead(gpio4_pin)+ webPage  + button1 + button2 + button3 + button4 );
+  });
+  
+  server.on("/socket1On", []() {
+    digitalWrite(gpio1_pin, HIGH);
+    server.send(200, "text/html", a+digitalRead(gpio1_pin)+b+digitalRead(gpio2_pin)+c+digitalRead(gpio3_pin)+d+digitalRead(gpio4_pin)+ webPage  + button1 + button2 + button3 + button4 );
+    delay(1000);
+  });
+  
+  server.on("/socket1Off", []() {
+    digitalWrite(gpio1_pin, LOW);
+    server.send(200, "text/html", a+digitalRead(gpio1_pin)+b+digitalRead(gpio2_pin)+c+digitalRead(gpio3_pin)+d+digitalRead(gpio4_pin)+ webPage  + button1 + button2 + button3 + button4 );
+    delay(1000);
+  });
+  
+  server.on("/socket2On", []() {
+    digitalWrite(gpio2_pin, HIGH);
+    server.send(200, "text/html", a+digitalRead(gpio1_pin)+b+digitalRead(gpio2_pin)+c+digitalRead(gpio3_pin)+d+digitalRead(gpio4_pin)+ webPage  + button1 + button2 + button3 + button4 );
+    delay(1000);
+  });
+  
+  server.on("/socket2Off", []() {
+    digitalWrite(gpio2_pin, LOW);
+    server.send(200, "text/html", a+digitalRead(gpio1_pin)+b+digitalRead(gpio2_pin)+c+digitalRead(gpio3_pin)+d+digitalRead(gpio4_pin)+ webPage  + button1 + button2 + button3 + button4 );
+    delay(1000);
+  });
+  
+  server.on("/socket3On", []() {
+    digitalWrite(gpio3_pin, HIGH);
+    server.send(200, "text/html", a+digitalRead(gpio1_pin)+b+digitalRead(gpio2_pin)+c+digitalRead(gpio3_pin)+d+digitalRead(gpio4_pin)+ webPage  + button1 + button2 + button3 + button4 );
+    delay(1000);
+  });
+  
+  server.on("/socket3Off", []() {
+    digitalWrite(gpio3_pin, LOW);
+    server.send(200, "text/html", a+digitalRead(gpio1_pin)+b+digitalRead(gpio2_pin)+c+digitalRead(gpio3_pin)+d+digitalRead(gpio4_pin)+ webPage  + button1 + button2 + button3 + button4 );
+    delay(1000);
+  });
+  
+  server.on("/socket4On", []() {
+    digitalWrite(gpio4_pin, HIGH);
+    server.send(200, "text/html", a+digitalRead(gpio1_pin)+b+digitalRead(gpio2_pin)+c+digitalRead(gpio3_pin)+d+digitalRead(gpio4_pin)+ webPage  + button1 + button2 + button3 + button4 );
+    delay(1000);
+  });
+  
+  server.on("/socket4Off", []() {
+    digitalWrite(gpio4_pin, LOW);
+    server.send(200, "text/html", a+digitalRead(gpio1_pin)+b+digitalRead(gpio2_pin)+c+digitalRead(gpio3_pin)+d+digitalRead(gpio4_pin)+ webPage  + button1 + button2 + button3 + button4 );
+    delay(1000);
+  });
+ 
+  server.begin();
+  Serial.println("HTTP server started");
+ 
+}
+void loop() {                   //repeated code is written in loop()
+server.handleClient();     // client request is managed here
+}
+
+```
