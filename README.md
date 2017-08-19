@@ -172,8 +172,26 @@ Working with 5v Relay using 3.3v signal from esp module.The figure 2 shows the p
 
 <img src="./completeHardwareSetup.png" alt="completeHardwareSetup.png" width="350">
 
-*Figure 3 shows the complete setup of relays, Wi-Fi module and connectivity with home appliances.*
+ **Figure 3 shows the complete setup of relays, Wi-Fi module and connectivity with home appliances.** 
 Relays and appliances are connected with ac supply (220v). Wi-Fi module is connected with any 5v DC supply through usb. The relays should be given a power supply of 5v dc sufficient enough to trigger the relay coil and make it work. The states of Relays are normally open. When the on signal is received, the relay switches to normally closed state and appliances are turned on.
+
+
+## How to Program Esp Module
+
+### 1)	[Installing “CP210x USB TO UART Bridge” driver.](#Installing “CP210x USB TO UART Bridge” driver.)
+### 2)	Setting up Arduino IDE for esp module.
+### 3)	Writing the Code we want.
+### 4)	Uploading the code.
+
+
+
+## Installing “CP210x USB TO UART Bridge” driver
+
+1)	Connect the module with the computer using micro USB cable.
+2)	Download driver from internet using either of these two steps:
+i)	Google “CP210x USB TO UART Bridge” driver and download it.
+ii)	Or just go to this link: http://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers and download driver according to the operating system used.
+Here we are using windows so we downloaded the windows version
 
 
 
